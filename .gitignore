@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+.venv/
+venv/
+env/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Database
+*.sqlite
+*.db
+
+# Build
+build/
+dist/
+*.egg-info/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Flask specific
+instance/
+
+# Coverage
+.coverage
+.coverage.*
+
+# Testing
+.pytest_cache/
+test-results/
+
+# Documentation
+docs/_build/
+
+# Other
+*.zip
+*.tar.gz
+*.rar
