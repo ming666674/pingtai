@@ -17,3 +17,8 @@ def order_list():
 @od.route('/order/create')
 def create_list():
     return "创建订单"
+
+
+@od.route('/order/delete')
+def delete_list():
+    return "删除订单"
