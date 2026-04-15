@@ -16,9 +16,14 @@ def order_list():
     else:
         # select * from order where user_id = user_info['id']
         data_list = db.fetch_all("select * from `order` left join userinfo on `order`.user_id = userinfo.id where `order`.user_id =%s",[user_info['id'],])
-        
-    print(data_list)
-    return render_template("order_list.html",data_list=data_list)
+    
+    status_dict = {
+        1:"待执行",
+        2:"正在执行",
+        3:"完成",
+        4:"失败",
+    }
+    return render_template("order_list.html",data_list=data_list,status_dict=status_dict)
 
 
 @od.route('/order/create')
