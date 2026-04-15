@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+      <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>URL</th>
+                <th>数量</th>
+                <th>状态</th>
+                <th>用户ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data_list %}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.url}}</td>
+                <td>{{item.count}}</td>
+                <td>{{item.status}}</td>
+                <td>{{item.user_id}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+</body>
+</html>

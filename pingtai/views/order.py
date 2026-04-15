@@ -1,12 +1,24 @@
-from flask import Blueprint,session,redirect
 
+from flask import Blueprint,session,redirect,render_template
+from utils import db
 #蓝图对象
 od = Blueprint("order", __name__)
 
 
 @od.route('/order/list')
 def order_list():
-    return "订单列表"
+    user_info = session.get("user_info")
+    role = user_info['role'] #1-客户  2-管理员
+    if role == 2:
+       # select * from order 
+       data_list = db.fetch_all("select * from `order`", [])
+       
+    else:
+        # select * from order where user_id = user_info['id']
+        data_list = db.fetch_all("select * from `order` where user_id =%s",[user_info['id'],])
+        
+    print(data_list)
+    return render_template("order_list.html",data_list=data_list)
 
 
 @od.route('/order/create')

@@ -25,3 +25,13 @@ def fetch_one(sql,params):
         cursor.close()
         conn.close() # 没有连接池的时候是关闭连接，有连接池的时候是将此连接还给连接池
         return result
+
+def fetch_all(sql,params):
+        # 数据库连接配置
+        conn = POOL.connection()
+        cursor = conn.cursor(cursor=cursors.DictCursor)
+        cursor.execute(sql, params)
+        result = cursor.fetchall()
+        cursor.close()
+        conn.close() # 没有连接池的时候是关闭连接，有连接池的时候是将此连接还给连接池
+        return result
