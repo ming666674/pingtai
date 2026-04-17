@@ -18,10 +18,10 @@ def order_list():
         data_list = db.fetch_all("select * from `order` left join userinfo on `order`.user_id = userinfo.id where `order`.user_id =%s",[user_info['id'],])
     
     status_dict = {
-        1:"待执行",
-        2:"正在执行",
-        3:"完成",
-        4:"失败",
+        1:{"text":"待执行",'cls':"primary"},
+        2:{"text":"正在执行",'cls':"info"},
+        3:{"text":"完成",'cls':"success"},
+        4:{"text":"失败",'cls':"danger"},
     }
     return render_template("order_list.html",data_list=data_list,status_dict=status_dict,real_name = user_info['real_name'])
 
