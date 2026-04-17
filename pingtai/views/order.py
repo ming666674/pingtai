@@ -23,7 +23,7 @@ def order_list():
         3:"完成",
         4:"失败",
     }
-    return render_template("order_list.html",data_list=data_list,status_dict=status_dict)
+    return render_template("order_list.html",data_list=data_list,status_dict=status_dict,real_name = user_info['real_name'])
 
 
 @od.route('/order/create')
